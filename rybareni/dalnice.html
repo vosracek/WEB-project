@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="cs"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Dálnice</title>
+<link rel="stylesheet" href="dalnice.css"></head><body>
+<canvas id="c"></canvas>
+
+<div class="card" id="hud">
+  <b class="money">💰 <span id="money">0</span></b>
+  <div id="spdRow"><span id="spd">0</span><small>km/h</small></div>
+  <div class="bar"><i id="spdBar"></i></div>
+  <div class="bar nit"><i id="nitBar"></i></div>
+  <div id="combo"></div>
+  <small id="stats"></small>
+</div>
+<div class="card" id="carName"></div>
+<div class="card" id="hint">Klikej na dálnici – přidáváš plyn. Auto samo hledá volný pruh.</div>
+
+<button class="bubble" id="shopB" title="Obchod s auty">🛒</button>
+<div class="card" id="shop">
+  <h3>🛒 Obchod s auty</h3>
+  <p class="note">Nejvyšší rychlost a zrychlení 0–100 jsou údaje výrobců. Výdělek za předjetí je herní bonus. Hra se při otevřeném obchodě zastaví.</p>
+  <div id="items"></div>
+</div>
+
+<button id="admB" title="Admin">⚙</button>
+<div class="card" id="adm">
+  <div id="admLogin">
+    <h3>⚙ Admin</h3>
+    <input id="admPw" type="password" placeholder="Heslo" autocomplete="off">
+    <div class="row"><button id="admGo">Přihlásit</button></div>
+  </div>
+  <div id="admTools" style="display:none">
+    <h3>⚙ Admin panel</h3>
+    <small>Peníze</small>
+    <input id="admNum" type="number" value="10000">
+    <div class="row"><button id="aAdd">Přidat</button><button id="aSet">Nastavit</button></div>
+    <small>Auto</small>
+    <select id="aCar"></select>
+    <div class="row"><button id="aDrive">Nasednout</button><button id="aAll">Odemknout všechna</button></div>
+    <label><input type="checkbox" id="aNit"> Plný plyn pořád</label>
+    <p id="aOut"></p>
+    <div class="row"><button class="dng" id="aReset">Reset postupu</button><button id="aOut2">Odhlásit</button></div>
+  </div>
+</div>
+
+<script src="tokeny.js"></script>
+<script src="dalnice-img.js"></script>
+<script src="dalnice.js"></script>
+</body></html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="cs"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pizzerie</title>
+<link rel="stylesheet" href="pizza.css"></head><body>
+<canvas id="c"></canvas>
+
+<div class="card" id="hud">
+  <b class="money">💰 <span id="money">0</span></b>
+  <div class="rep"><span>⭐ Pověst</span><div class="bar"><i id="repBar"></i></div><em id="repTxt">50</em></div>
+  <small id="stats"></small>
+  <small id="rent"></small>
+</div>
+<div id="toast"></div>
+<div class="card" id="hint">Pec peče → kuchař dává na pás → pás vozí do krabice → prodavač prodává. Vylepšuj v 🛒 a hlídej úzké hrdlo!</div>
+
+<button class="bubble" id="shopB" title="Obchod / vylepšení">🛒</button>
+<div class="card" id="shop">
+  <div id="tabs">
+    <button data-tab="oven" class="on">🔥 Pec</button>
+    <button data-tab="belt">📦 Pás</button>
+    <button data-tab="sell">🧑‍💼 Prodavač</button>
+    <button data-tab="pizza">🍕 Pizzy</button>
+  </div>
+  <div id="flow"></div>
+  <div id="list"></div>
+</div>
+
+<button id="admB" title="Admin">⚙</button>
+<div class="card" id="adm">
+  <div id="admLogin">
+    <h3>⚙ Admin</h3>
+    <input id="admPw" type="password" placeholder="Heslo" autocomplete="off">
+    <div class="row"><button id="admGo">Přihlásit</button></div>
+  </div>
+  <div id="admTools" style="display:none">
+    <h3>⚙ Admin panel</h3>
+    <small>Peníze</small>
+    <input id="admNum" type="number" value="10000">
+    <div class="row"><button id="aAdd">Přidat</button><button id="aSet">Nastavit</button></div>
+    <div class="row"><button id="aUnl">Odemknout všechny pizzy</button></div>
+    <div class="row"><button id="aMax">Vše na maximum</button><button id="aRep">Pověst 100</button></div>
+    <small>Rychlost hry</small>
+    <select id="aSpd"><option value="1">×1 (normální)</option><option value="3">×3</option><option value="8">×8</option></select>
+    <label><input type="checkbox" id="aFree"> Suroviny zdarma</label>
+    <label><input type="checkbox" id="aNoRent"> Bez nájmu</label>
+    <p id="aOut"></p>
+    <div class="row"><button class="dng" id="aReset">Reset postupu</button><button id="aOut2">Odhlásit</button></div>
+  </div>
+</div>
+
+<script src="tokeny.js"></script>
+<script src="pizza-img.js"></script>
+<script src="pizza.js"></script>
+</body></html>

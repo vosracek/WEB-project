@@ -1,0 +1,57 @@
+:root{box-sizing:border-box;--panel:#10122aeb;--line:#ffab6e55;--ink:#fff3e6;--muted:#b9a9c9;--accent:#ffb02e;--nitro:#47d7ff;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:#0c1847;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);user-select:none;-webkit-user-select:none;touch-action:manipulation}
+canvas{display:block;width:100%;height:100%;cursor:pointer}
+.card{position:absolute;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:8px 14px;backdrop-filter:blur(4px);box-shadow:0 2px 14px #0008}
+small{color:var(--muted)}
+
+#hud{top:calc(env(safe-area-inset-top,0px) + 10px);left:10px;width:188px;display:flex;flex-direction:column;gap:4px}
+.money{font-size:1.25rem}
+#spdRow{display:flex;align-items:baseline;gap:6px;margin-top:2px}
+#spd{font-size:2.3rem;font-weight:900;font-variant-numeric:tabular-nums;line-height:1}
+#spdRow small{font-size:.8rem}
+.bar{height:7px;border-radius:5px;background:#ffffff1c;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ffb02e,#ff5d3a);border-radius:5px}
+.bar.nit i{background:linear-gradient(90deg,#47d7ff,#b58bff)}
+#combo{min-height:1.2em;font-weight:800;color:var(--accent);font-size:.95rem}
+#stats{font-size:.72rem}
+
+#carName{top:calc(env(safe-area-inset-top,0px) + 10px);right:48px;font-weight:700;font-size:.85rem;max-width:45%;text-align:right}
+#hint{left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);transform:translateX(-50%);font-size:.9rem;white-space:nowrap;animation:fo 1s 9s forwards;pointer-events:none}
+@keyframes fo{to{opacity:0;visibility:hidden}}
+
+.bubble{position:absolute;left:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);width:56px;height:56px;border-radius:50%;border:2px solid #fff9;background:radial-gradient(circle at 30% 30%,#ffffffcc,#ffb02e99);font-size:1.6rem;cursor:pointer;box-shadow:0 2px 12px #0008;animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-6px)}}
+
+#shop{left:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 84px);width:min(360px,calc(100% - 28px));max-height:calc(100% - 130px);overflow:auto;display:none}
+#shop.open{display:block}
+#shop h3,#adm h3{margin:0 0 6px}
+.note{margin:0 0 8px;font-size:.75rem;color:var(--muted)}
+.item{display:grid;grid-template-columns:84px 1fr;gap:10px;align-items:center;padding:8px 0;border-top:1px solid #ffffff1c}
+.item img{width:84px;height:58px;object-fit:contain}
+.item b{display:block;font-size:.9rem}
+.item .sp{font-size:.74rem;color:var(--muted);margin:2px 0 5px;line-height:1.35}
+.item button{width:100%;padding:7px 8px;border:0;border-radius:9px;background:var(--accent);color:#2b1700;font-weight:800;cursor:pointer}
+.item button:disabled{opacity:.45;cursor:not-allowed}
+.item button.on{background:#39d353;color:#04240c;opacity:1}
+.item.cur{background:#ffffff0d}
+
+#admB{position:absolute;top:calc(env(safe-area-inset-top,0px) + 10px);right:10px;width:26px;height:26px;padding:0;border-radius:50%;border:1px solid #fff7;background:#ffffff33;color:#fff;font-size:.8rem;opacity:.3;cursor:pointer}
+#admB:hover{opacity:1}
+#adm{top:calc(env(safe-area-inset-top,0px) + 44px);right:10px;width:min(300px,calc(100% - 20px));max-height:calc(100% - 70px);overflow:auto;display:none}
+#adm.open{display:block}
+#adm input,#adm select{width:100%;padding:8px;margin:4px 0;border-radius:8px;border:2px solid var(--muted);background:#0b0d22;color:var(--ink);font-size:.95rem}
+#adm button{flex:1;padding:8px 10px;margin:3px 0;border:0;border-radius:8px;background:var(--accent);color:#2b1700;font-weight:700;cursor:pointer}
+#adm button.dng{background:#e5484d;color:#fff}
+#adm .row{display:flex;gap:6px}
+#adm label{display:flex;gap:8px;align-items:center;margin:8px 0;font-size:.9rem}
+#adm label input{width:auto;margin:0}
+#aOut{margin:6px 0;font-weight:700}
+#admPw.bad{animation:shake .35s;border-color:#e33}
+@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+
+@media (max-width:560px){
+  #hud{width:150px;padding:6px 10px}#spd{font-size:1.8rem}.money{font-size:1.05rem}
+  #hint{white-space:normal;width:calc(100% - 100px);text-align:center;left:calc(50% + 28px)}
+}
+@media (prefers-reduced-motion:reduce){.bubble{animation:none}}

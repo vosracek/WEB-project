@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cs"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Zombie farma</title>
+<link rel="stylesheet" href="zombie.css"></head><body>
+<canvas id="cv"></canvas>
+<div id="flash"></div>
+<div class="card" id="c1">💰 <span id="money">0</span></div>
+<div class="card" id="c2">❤️ <div class="hp"><i id="hpF"></i></div></div>
+<div class="card" id="c3">🧟 <span id="kills">0</span> &nbsp;⏱ <span id="tm">0</span> s</div>
+<div id="boss"><div class="bn">☠ ZOMBIE BOSS ☠</div><div class="bt"><i id="bossF"></i></div><small id="bossT"></small><small id="bossN" style="display:none"></small></div>
+<div id="banner"></div>
+<div id="bar"><div id="slots" style="display:flex;gap:6px"></div><div id="ammo"><big id="am">-</big><div id="rl"><i id="rlF"></i></div></div><button id="rb">🔄 R</button></div>
+<button class="bubble" id="shopB" title="Obchod se zbraněmi">🛒</button>
+<div id="shop"><h3>🛒 Obchod se zbraněmi</h3><p class="note">Hra se při otevřeném obchodě zastaví. Údaje o kadenci jsou reálné (přibližně), poškození je herní (zombie má 100 životů).</p><div id="items"></div></div>
+<button id="admB" title="Admin">⚙</button>
+<div id="adm">
+  <div id="admLogin">
+    <h3>⚙ Admin</h3>
+    <input id="admPw" type="password" placeholder="Heslo" autocomplete="off">
+    <div class="row"><button id="admGo">Přihlásit</button></div>
+  </div>
+  <div id="admTools" style="display:none">
+    <h3>⚙ Admin panel</h3>
+    <small>Peníze</small>
+    <input id="admNum" type="number" value="1000">
+    <div class="row"><button id="aAdd">Přidat</button><button id="aSet">Nastavit</button></div>
+    <small>Další</small>
+    <div class="row"><button id="aAll">Odemknout všechny zbraně</button></div>
+    <div class="row"><button id="aHeal">Vyléčit</button><button id="aBoss">Přivolat bosse</button></div>
+    <div class="row"><button id="aOff">Odhlásit</button></div>
+    <p id="admOut"></p>
+  </div>
+</div>
+<div class="ov show" id="start"><h1>🧟 ZOMBIE FARMA</h1><p>Farma hoří a zombíci se valí zleva. Stojíš na rozbitém autě. Míř myší / prstem a střílej (držet = automat). <b>R</b> přebíjení, <b>1–5</b> výměna zbraně. Střela do hlavy dává dvojnásobek. Za zombíky dostaneš peníze a v 🛒 si kupuješ silnější zbraně.</p><button id="go">▶ Bránit farmu</button></div>
+<div class="ov" id="over"><h1>💀 Převálcovali tě</h1><p id="ovT"></p><button id="again">Hrát znovu</button></div>
+<script src="tokeny.js"></script>
+<script src="zombie-img.js"></script>
+<script src="zombie.js"></script></body></html>

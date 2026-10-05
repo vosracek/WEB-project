@@ -1,0 +1,43 @@
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;overflow:hidden;background:#000;font-family:Georgia,"Times New Roman",serif;color:#fff}
+#stage,.sc{position:fixed;inset:0}
+.sc{opacity:0;transition:opacity 1.4s}.sc.in{opacity:1}
+.sc svg{width:100%;height:100%;display:block}
+#rain,#flash{position:fixed;inset:0;pointer-events:none;opacity:0}
+#rain{background:repeating-linear-gradient(105deg,transparent 0 14px,#cfe3ff55 14px 15px);background-size:60px 60px;animation:rn 0.35s linear infinite;transition:opacity 1s}
+#rain.on{opacity:.55}
+@keyframes rn{to{background-position:-30px 60px}}
+#flash{background:#fff}#flash.z{animation:fz .8s}
+@keyframes fz{0%{opacity:.9}20%{opacity:.1}35%{opacity:.8}100%{opacity:0}}
+#top{position:fixed;top:calc(env(safe-area-inset-top,0px) + 8px);left:10px;right:10px;display:flex;justify-content:space-between;align-items:center;z-index:5;font-size:13px;text-shadow:0 1px 4px #000}
+#snd{border:0;border-radius:50%;width:38px;height:38px;font-size:18px;background:#0008;color:#fff;cursor:pointer}
+#box{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 12px);width:min(760px,94vw);background:linear-gradient(#0a1320cc,#050a12ee);border:1px solid #ffffff30;border-radius:16px;padding:16px 18px;z-index:5;backdrop-filter:blur(4px);box-shadow:0 8px 30px #000a}
+#txt{font-size:clamp(15px,2.3vw,19px);line-height:1.5;min-height:3em}
+#ch{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;opacity:0;transition:opacity .6s}
+#ch.show{opacity:1}
+#ch button,.ov button{flex:1 1 220px;padding:11px 14px;border:1px solid #ffd27a;border-radius:12px;background:#ffd27a22;color:#ffe9b8;font:600 15px Georgia,serif;cursor:pointer;transition:.2s}
+#ch button:hover,.ov button:hover{background:#ffd27a;color:#2b1700;transform:translateY(-2px)}
+.ov{position:fixed;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;background:#000d;z-index:20}
+.ov.show{display:flex}.ov h1{font-size:clamp(28px,6vw,52px);text-shadow:0 0 20px #ffb347}
+.ov p{max-width:560px;line-height:1.6}.ov button{flex:none;padding:13px 28px;font-size:18px}
+#end{background:#000b}#eF{display:flex;gap:8px;font-size:22px}#eF span{opacity:.3}#eF span.on{opacity:1}
+/* animace scén */
+.wv{animation:wv 6s linear infinite}@keyframes wv{to{transform:translateX(-100px)}}
+.sway{animation:sw 4s ease-in-out infinite alternate}@keyframes sw{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+.cl{animation:cl 70s linear infinite}@keyframes cl{from{transform:translateX(-300px)}to{transform:translateX(1100px)}}
+.fl{transform-box:fill-box;transform-origin:50% 100%;animation:fl .25s infinite alternate}@keyframes fl{from{transform:scaleY(.8) scaleX(1.05)}to{transform:scaleY(1.15) scaleX(.9)}}
+.rock{transform-box:fill-box;transform-origin:center;animation:rk 3s ease-in-out infinite alternate}@keyframes rk{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+.sail{animation:sl 16s linear forwards}@keyframes sl{from{transform:translateX(-300px)}to{transform:translateX(380px)}}
+.sink{transition:transform 6s ease-in;transform:translateY(130px) rotate(28deg)}
+.run{animation:rb .3s infinite alternate}@keyframes rb{to{transform:translateY(-7px)}}
+.come{animation:cm 4s ease-out both}@keyframes cm{from{transform:translateX(var(--dx,420px))}}
+.chs{animation:ch 2.6s ease-in-out infinite alternate}@keyframes ch{from{transform:translateX(-90px)}to{transform:translateX(50px)}}
+.walk{animation:wk 12s linear infinite}@keyframes wk{from{transform:translateX(900px)}to{transform:translateX(-300px)}}
+.fly{animation:fy 18s linear infinite}@keyframes fy{from{transform:translate(-100px,0)}to{transform:translate(900px,-40px)}}
+.tw{animation:tw 2s ease-in-out infinite alternate}@keyframes tw{from{opacity:.25}to{opacity:1}}
+.snort{transform-box:fill-box;transform-origin:center;animation:sn 1.2s ease-in-out infinite alternate}@keyframes sn{to{transform:translateY(-3px) scale(1.02)}}
+.dead{transform-box:fill-box;transform-origin:center;transform:rotate(80deg)}
+.dance{animation:dn .5s infinite alternate}@keyframes dn{from{transform:rotate(-6deg)}to{transform:rotate(6deg) translateY(-8px)}}
+.drift{animation:dr 20s ease-in-out infinite alternate}@keyframes dr{to{transform:translate(70px,-6px)}}
+.arr{animation:ar 10s ease-out both}@keyframes ar{from{transform:translate(120px,-20px) scale(.3)}to{transform:none}}
+.glow{animation:gl 3s ease-in-out infinite alternate}@keyframes gl{to{opacity:.7}}

@@ -1,0 +1,8 @@
+/* tokeny.css – styly jmen (zlaté, platinové, diamantové, duhové); načítá index.html a vylepseni.html */
+.vy-nm{font-weight:800;letter-spacing:.02em}
+.vy-nm-gold{background:linear-gradient(90deg,#b8860b,#ffd700,#fff3a6,#ffd700,#b8860b);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:vyShine 3s linear infinite;filter:drop-shadow(0 0 4px #ffd70088)}
+.vy-nm-plat{background:linear-gradient(90deg,#9aa7b3,#f2f6fa,#c4ced8,#ffffff,#9aa7b3);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:vyShine 4s linear infinite;filter:drop-shadow(0 0 4px #cfe3f588)}
+.vy-nm-dia{background:linear-gradient(90deg,#00c6ff,#7df9ff,#e0ffff,#38d9ff,#00c6ff);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:vyShine 2s linear infinite;filter:drop-shadow(0 0 6px #38d9ffcc)}
+.vy-nm-rain{background:linear-gradient(90deg,#ff0040,#ff9a00,#f7e600,#00e05a,#00b7ff,#8a2be2,#ff0040);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:vyShine 4s linear infinite}
+@keyframes vyShine{to{background-position:200% 0}}
+@media (prefers-reduced-motion:reduce){.vy-nm{animation:none!important}}

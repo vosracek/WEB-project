@@ -1,0 +1,27 @@
+SPUŠTĚNÍ HRY
+1) Rozbal celý ZIP do jedné složky (nic nepřesouvej, všechny soubory musí zůstat pohromadě).
+2) Otevři soubor index.html (dvojklik). Tím se spustí celá stránka včetně všech miniher.
+
+SOUBORY
+index.html + rybareni.css + rybareni.js    hlavní hra (rybaření, menu)
+arkady.html/.css/.js                       arkády
+akvarium.html/.css/.js                     akvárium
+zombie.html/.css/.js + zombie-img.js       zombie expedice (zbraně jsou v zombie-img.js)
+dalnice.html/.css/.js + dalnice-img.js     dálnice (fotky aut jsou v dalnice-img.js)
+pizza.html/.css/.js + pizza-img.js         pizzerie (tycoon; fotky pizz jsou v pizza-img.js)
+ostrov.html/.css/.js                       Ztroskotanec – příběhová hra na ostrově (5 konců, zvuky, animace; dlaždice 🏝️ Ostrov místo Multiplayeru)
+vylepseni.html/.css/.js                    obchod Vylepšení (tokeny z miniher)
+tokeny.js + tokeny.css                     sdílený modul: tokeny, ceny, uložení, režim, styly jmen (načítá index, vylepšení i minihry)
+tema.js                                    použije vylepšení na celý web (RGB, barva, pozadí) a přijímá tokeny z miniher
+rybareni.html                              jen přesměruje na index.html
+
+Minihry se načtou až po kliknutí na jejich dlaždici v menu.
+Admin v zombie expedici: ikona ⚙ vpravo nahoře, heslo perofacky.
+Admin v dálnici: ikona ⚙ vpravo nahoře uvnitř hry, heslo perofacky (peníze, odemknutí aut, plný plyn, reset).
+Admin v pizzerii: ikona ⚙ vpravo nahoře uvnitř hry, heslo perofacky (peníze, odemknutí pizz, vše na maximum, rychlost hry, suroviny zdarma, reset).
+
+VYLEPŠENÍ (dlaždice 🛠️ v menu)
+Tokeny 🪙 dostáváš za hraní: arkády (výhry), akvárium (zásahy ryb), zombie (zabití), dálnice (předjetí), pizzerie (prodeje). Je to stejná měna jako v rybaření.
+Záložky: Server (Výkon = víc tokenů, Síť = pasivní tokeny, Cache = větší denní odměna) · Vzhled (světlý/tmavý/auto režim, RGB posvícení webu, barva celého webu, stopa kurzoru, pozadí menu) · Profil (přezdívka pro žebříček, zlaté/platinové/diamantové/duhové jméno, odznaky) · Admin panely (koupený panel se v minihře otevře bez hesla) · Bonusy (denní odměna, přehled kolik tokenů dává která hra).
+Admin v hlavním menu (⚙, heslo nemamradsmace): přidání / nastavení tokenů, rychlá tlačítka +100 / +1 000 / +10 000, odemknutí všeho ve vylepšení a reset vylepšení.
+Ceny a sazby se upravují nahoře v tokeny.js (RATE, CAP, PRICES, SRV, NS, BADGES, BGS, ADM).

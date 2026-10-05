@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Akvárium</title>
+<link rel="stylesheet" href="akvarium.css"></head><body>
+<canvas id="c"></canvas>
+<div class="card" id="hud"><b>💰 <span id="money">0</span></b><div id="streak"></div><small id="stats"></small></div>
+<div class="card" id="auto"><span id="autoT"></span><i id="autoBar"></i></div>
+<div class="card" id="hint">Klikej na ryby! Čím delší streak, tím víc peněz.</div>
+<button id="admB" title="Admin" style="display:none">⚙</button>
+<div class="card" id="adm"><h3>🔧 Admin panel</h3><input id="admNum" type="number" value="1000"><div class="row"><button id="aAdd">Přidat peníze</button><button id="aSet">Nastavit</button></div><div class="row"><button id="aM1">+1 000</button><button id="aM2">+100 000</button></div><p id="aOut"></p></div>
+<button id="shopB" title="Obchod">🛒</button>
+<div class="card" id="shop"><h3>🛒 Obchod</h3><p><b>🤖 Auto-klikač</b> – 1 minuta samo klikání na ryby. Nákup prodlouží čas o další minutu.</p><p id="shopMsg"></p><button id="buy"></button></div>
+<script src="tokeny.js"></script>
+<script src="akvarium.js"></script></body></html>

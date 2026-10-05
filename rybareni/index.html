@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rybář – minihra</title>
+<script>
+/* Když chybí některý soubor (CSS/JS), ukáže se červený pruh s názvem */
+window.addEventListener("error",function(e){var t=e.target;if(t&&t!==window&&(t.src||t.href)){var n=(t.src||t.href).split("/").pop();var d=document.createElement("div");d.style.cssText="position:fixed;z-index:9999;left:0;right:0;top:0;padding:12px;background:#b00020;color:#fff;font:600 14px system-ui,sans-serif;text-align:center";d.textContent="Chybí soubor „"+n+"“. Rozbal celou složku, nech všechny soubory pohromadě a otevři index.html.";(document.body||document.documentElement).appendChild(d)}},true);
+</script>
+<link rel="stylesheet" href="tokeny.css">
+<link rel="stylesheet" href="rybareni.css">
+</head>
+<body>
+<div id="rgb"></div>
+<div id="site">
+<div id="game">
+<svg id="scene" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+  <circle cx="660" cy="90" r="42" fill="#fff3a6"/>
+  <g fill="#fff" opacity=".9"><ellipse cx="150" cy="80" rx="60" ry="18"/><ellipse cx="190" cy="68" rx="40" ry="16"/><ellipse cx="480" cy="130" rx="55" ry="15"/></g>
+  <g class="wave"><path d="M-120 225 q30 -14 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 V500 H-120Z" fill="#2a86b5" opacity=".6"/></g>
+  <g id="boatg">
+    <path d="M250 340 H470 L445 385 H275Z" fill="#8a4b1f"/><path d="M250 340 H470 L466 350 H254Z" fill="#b46a2c"/>
+    <rect x="335" y="300" width="34" height="42" rx="8" fill="#e63946"/>
+    <circle cx="352" cy="288" r="14" fill="#f2c79b"/>
+    <path d="M336 282 q16 -22 32 0z" fill="#f4d35e"/><rect x="332" y="280" width="40" height="5" rx="2" fill="#f4d35e"/>
+    <path d="M362 312 L392 298" stroke="#f2c79b" stroke-width="7" stroke-linecap="round"/>
+    <path d="M385 302 L500 232" stroke="#3b2a1a" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+  <path id="line" d="" stroke="#fff" stroke-width="1.5" fill="none" opacity=".9"/>
+  <g id="bobG" style="display:none"><g id="bob"><circle cx="0" cy="0" r="8" fill="#fff"/><path d="M-8 0a8 8 0 0 1 16 0z" fill="#e63946"/></g></g>
+  <g class="wave b"><path d="M-120 352 q30 -12 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 V500 H-120Z" fill="#1c6f9c"/></g>
+</svg>
+<div class="hud">🪙 <span id="tok">0</span></div>
+<div class="status" id="status">Hoď udici a chytej ryby!</div>
+<button id="act">🎣 Hodit udici</button>
+<div id="catch"><div class="e" id="ce"></div><div class="n" id="cn"></div><div class="r" id="cr"></div><div id="ct" style="margin-top:6px;font-weight:700"></div></div>
+
+<button class="bubble" id="shopB" title="Obchod">🛒</button>
+<div class="pop" id="shop">
+  <h3>🛒 Obchod s kódem</h3>
+  <p>Kupuj znaky tajného kódu postupně. Kód pak zadej v bublině vpravo dole.</p>
+  <div class="slots" id="slots"></div>
+  <button class="buy" id="buy"></button>
+</div>
+<button class="bubble" id="keyB" title="Zadat kód">🔑</button>
+<div class="pop" id="keyP">
+  <h3>🔑 Zadej kód</h3>
+  <input id="code" maxlength="12" autocomplete="off" placeholder="______">
+  <p id="keyMsg">Potvrď klávesou Enter.</p>
+  <button class="buy" id="ok">Odemknout</button>
+</div>
+</div>
+
+<div id="menu">
+  <h1>🌊 Hlavní menu</h1>
+  <p class="sub">Gratuluji, hra se uzavřela a odemkl jsi menu!</p>
+  <div id="who"><span id="whoName"></span><span id="whoTok">🪙 0</span></div>
+  <div class="grid" id="grid"></div>
+</div>
+
+<div id="arcade"><div id="arcBar"><button id="arcBack">← Zpět do menu</button></div><iframe id="arcFrame" title="Arkády"></iframe></div>
+<div id="aqua"><div id="aquaBar"><button id="aquaBack">← Zpět do menu</button></div><iframe id="aquaFrame" title="Akvárium"></iframe></div>
+<div id="zomb"><div id="zombBar"><button id="zombBack">← Zpět do menu</button></div><iframe id="zombFrame" title="Zombie expedice"></iframe></div>
+<div id="hwy"><div id="hwyBar"><button id="hwyBack">← Zpět do menu</button></div><iframe id="hwyFrame" title="Dálnice"></iframe></div>
+<div id="piz"><div id="pizBar"><button id="pizBack">← Zpět do menu</button></div><iframe id="pizFrame" title="Pizzerie"></iframe></div>
+<div id="ost"><div id="ostBar"><button id="ostBack">← Zpět do menu</button></div><iframe id="ostFrame" title="Ztroskotanec"></iframe></div>
+<div id="upg"><div id="upgBar"><button id="upgBack">← Zpět do menu</button></div><iframe id="upgFrame" title="Vylepšení"></iframe></div>
+<button id="admB" title="Admin">⚙</button>
+<div id="adm">
+  <div id="admLogin">
+    <h3>⚙ Admin</h3>
+    <input id="admPw" type="password" placeholder="Heslo" autocomplete="off">
+    <div class="row"><button id="admGo">Přihlásit</button></div>
+  </div>
+  <div id="admTools" style="display:none">
+    <h3>⚙ Admin panel</h3>
+    <small>Tokeny 🪙 (měna vylepšení) – máš: <b id="admTok">0</b></small>
+    <input id="admNum" type="number" value="1000">
+    <div class="row"><button id="aAdd">Přidat</button><button id="aSet">Nastavit</button></div>
+    <div class="row"><button class="aQ" data-n="100">+100</button><button class="aQ" data-n="1000">+1 000</button><button class="aQ" data-n="10000">+10 000</button></div>
+    <div class="row"><button id="aUpAll">Odemknout vše ve vylepšení</button><button class="dng" id="aUpReset">Reset vylepšení</button></div>
+    <small>Vynutit další úlovky</small>
+    <select id="fsel"></select>
+    <label><input type="checkbox" id="aInst"> Okamžité zabírání</label>
+    <div class="row"><button id="aCode">Odemknout celý kód</button></div>
+    <div class="row"><button id="aShow">Zobrazit kód</button><button id="aMenu">Do menu</button></div>
+    <small>Akvárium</small>
+    <div class="row"><button id="aAq">Přidat peníze do akvária (částka výše)</button></div>
+    <small>Zombie expedice</small>
+    <div class="row"><button id="aZ">Přidat peníze do zombie (částka výše)</button></div>
+    <small>Dálnice</small>
+    <div class="row"><button id="aHw">Přidat peníze do dálnice (částka výše)</button></div>
+    <small>Pizzerie</small>
+    <div class="row"><button id="aPz">Přidat peníze do pizzerie (částka výše)</button></div>
+    <p id="aOut" style="margin:6px 0;font-weight:700"></p>
+    <div class="row"><button class="dng" id="aReset">Reset postupu</button><button id="aOut2">Odhlásit</button></div>
+  </div>
+</div>
+
+</div>
+<script src="tokeny.js"></script>
+<script src="rybareni.js"></script>
+<script src="tema.js"></script>
+</body>
+</html>
